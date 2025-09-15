@@ -4,28 +4,28 @@ public class FileHandlingActivity {
     public static void main(String[] args) throws IOException {
         // Your code here
         // a. Create main directory
-        File main = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge");
+        File main = new File("JavaFileSystem");
         main.mkdir();
         // b. Create three text files
-        File file = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge/main");
+        File file = new File("notes.txt");
         file.createNewFile();
-        File file2 = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge/main");
+        File file2 = new File("data.txt");
         file2.createNewFile();
-        File file3 = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge/main");
+        File file3 = new File("log.txt");
         file3.createNewFile();
         // c. Write messages to files
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
-            bufferedWriter.write("Data for file 1");
+            bufferedWriter.write("Data for notes file");
         } catch (IOException e) {
             e.printStackTrace();
         }
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file2))) {
-            bufferedWriter.write("Data for file 2");
+            bufferedWriter.write("Data for data file");
         } catch (IOException e) {
             e.printStackTrace();
         }
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file3))) {
-            bufferedWriter.write("Data for file 3");
+            bufferedWriter.write("Data for log file");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -55,10 +55,10 @@ public class FileHandlingActivity {
             System.err.println("Error reading file: " + e.getMessage());
         }
         // e. Create backup directory
-        File backupDir = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge");
+        File backupDir = new File("Backup");
         backupDir.mkdir();
         // f. Copy contents to backup file
-        File backupFile = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge/backupDir");
+        File backupFile = new File("backup.txt");
         backupFile.createNewFile();
         try (BufferedReader reader = new BufferedReader(new FileReader(file));
                 BufferedWriter writer = new BufferedWriter(new FileWriter(backupFile))) {
