@@ -30,7 +30,30 @@ public class FileHandlingActivity {
             e.printStackTrace();
         }
         // d. Read and display file contents
-        
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file2))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file3))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
         // e. Create backup directory
         
         // f. Copy contents to backup file
