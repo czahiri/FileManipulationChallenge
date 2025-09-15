@@ -104,5 +104,21 @@ public class FileHandlingActivity {
                 System.out.println(f);
             }
         }
+    
+        debugFileOperation();
+    }
+    public static void debugFileOperation() {
+        try {
+    // Creating a file with an invalid name (forward slash is invalid for file names on many OS)
+    File file = new File("//Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge/filename.txt");
+    
+    // Attempting to write to the invalid file
+    FileWriter writer = new FileWriter(file);
+    writer.write("Will this fail?");
+    writer.close();
+} catch (IOException e) {
+    System.out.println("An error occurred: " + e.getMessage());
+    e.printStackTrace(); // Critical error that will terminate the program
+}
     }
 }
