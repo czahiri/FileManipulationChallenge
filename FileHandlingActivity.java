@@ -58,7 +58,38 @@ public class FileHandlingActivity {
         File backupDir = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge");
         backupDir.mkdir();
         // f. Copy contents to backup file
-  
+        File backupFile = new File("/Users/cyruszahiri/Desktop/HTCS_Projects/FileManipulationChallenge/backupDir");
+        backupFile.createNewFile();
+        try (BufferedReader reader = new BufferedReader(new FileReader(file));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(backupFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file2));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(backupFile, true))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file3));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(backupFile, true))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // g. List all files in both directories
     }
 }
