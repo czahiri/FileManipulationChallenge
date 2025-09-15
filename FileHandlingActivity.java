@@ -14,7 +14,21 @@ public class FileHandlingActivity {
         File file3 = new File("myfile3.txt");
         file3.createNewFile();
         // c. Write messages to files
-        
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file))) {
+            bufferedWriter.write("Data for file 1");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file2))) {
+            bufferedWriter.write("Data for file 2");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file3))) {
+            bufferedWriter.write("Data for file 3");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // d. Read and display file contents
         
         // e. Create backup directory
