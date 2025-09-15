@@ -91,5 +91,18 @@ public class FileHandlingActivity {
             e.printStackTrace();
         }
         // g. List all files in both directories
+        System.out.println("Files in main directory:");
+        String[] mainFiles = main.list();
+        if (mainFiles != null) {
+            for (String f : mainFiles) {
+                System.out.println(f);
+    }
+}        System.out.println("Files in backup directory:");
+        String[] backupFiles = backupDir.list();
+        if (backupFiles != null) {
+            for (String f : backupFiles) {
+                System.out.println(f);
+            }
+        }
     }
 }
